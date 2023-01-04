@@ -1,0 +1,267 @@
+We have to slow down sometimes in order to gain speed
+
+We can't be agile if our code stinks
+
+Code is how we tell our colleagues how we feel about them
+
+Quality of code is a reflection of empathy and humanity
+
+What makes quality good?
+-easy to read
+-easy to understand
+-self documenting
+-uses proper conventions
+-conveys intent clearly
+-small in size
+-is modular
+-works as expected
+-conforms to guidelines
+-has tests and is easier to test
+-simple (KISS)
+-has proper spacing
+-cohesive
+-easy to maintain, change
+-reusable?
+-is consistent
+-extensible?
+-relevant
+-minimalistic
+-has fewest dependencies
+-proper error handling
+-is secure?
+-good separation of concerns
+-has proper encapsulation
+-is idiomatic
+-robust and graceful
+-has less duplication (DRY)
+-...
+
+
+Good code reads like a story, not like a puzzle
+
+A good quality code is the one where the future you thanks yourself
+
+The quality of code is inversely proportional to the amount of time and
+effort it takes to understand it.
+
+Quality is also about the economics of software development
+
+“There are two ways of constructing a software design. One way is to make it 
+so simple that there are obviously no deficiencies and the other is to make 
+it so complicated that there are no obvious deficiencies”— Tony Hoare
+
+It is almost impossible to create better quality code in one writing
+
+Write, then refactor to improve the quality, and do it before calling it done
+
+Make it work, make it better real soon
+
+order(3)
+
+What does that mean? What is 3?
+
+Magic numbers - avoid them in the code
+
+Looking at the number and the function name we have no clue what this means
+
+It is hard to change the number - hard to find and replace correctly without
+affecting other uses of 3 in a different context in the code.
+
+What does 3 mean here?
+Is it number of items?
+Is it size of an item?
+
+One first step may be to change the function name from order to orderBySize
+
+And, in some languages, we can nice use named arguments
+
+
+orderBySize(size = 3)
+
+Mention some languages that have named arguments:
+Ruby
+C#
+Python
+Kotlin
+Scala
+TypeScript
+VB
+Swift
+...
+
+Named arguments make the code easier to understand and the intent clearer
+
+Another possibility, as a user of the code:
+
+orderBySize(LARGE_SIZE)
+
+As a designer of the code we may better write
+
+orderBySize(Size size) instead of order(int size)
+where Size may be an enum
+
+The caller may then use orderBySize(Size.LARGE)
+
+
+One more detail
+
+orderBySize(int n) - what does n mean?
+
+Likewise, please don't use
+
+orderBySize(Size s) - what does s mean?
+
+When using an IDE, the user of the code may see n or s which does not 
+really help them. Also, if they use named arguments this code is now
+worse orderBySize(n = 3) - really terrible
+
+Give good names for function/method parameters
+Not long name, not cryptic names either. Short but clear and fluent to read
+and express
+
+If Size is not a value that can really be constrained using an enum?
+
+createBuffer(int size)
+
+instead of defining createBuffer(Size size)
+
+But, what is Size?
+
+We may not want to create a new class called Size because that may be an 
+overhead?
+
+Some languages use macros to map Size to an int, for example.
+But macros is a pre-processor feature in many languages and lacks 
+compiler checks.
+
+For example, Kotlin has an interesting feature called inline classes.
+This is useful to represent domain specific types in code, but the
+compiler will translate the type into another type (often primitive)
+for efficiency.
+
+The word Clever is like the word legacy in our field
+
+In the world out there legacy is great, but in software we dislike legacy
+code. Likewise, clever in general is good, but not in code.
+
+s += ((s << 2) + (s << 1) + (s)) / 100;
+
+What does this code do?
+
+It may be really fast (or may be not)
+Ask what speed is necessary; it is not about how fast it can be mostly.
+
+The intent is not clear at all in the above code. How do we change it
+if we have no clue what it does? Is it fast to change as well as fast to run?
+
+In the above, the code is actually increasing the given value by 7%
+of the value. How easy it is to change it to 8% of the value or to 5%
+of the value?
+
+Hard to understand, very expensive to change.
+
+More expensive to change, hard to read, hard to understand, hard to maintain.
+Overall high cost of maintenance.
+
+It it not a verdict against such code or coders, but know the consequences
+of such code and also ask if this is totally essential and unavoidable
+
+10% of the time, we write ugly code for performance reasons, the other 90% of the time, we write ugly code to be consistent
+
+https://twitter.com/boulderjug/status/387769918126428161
+
+Those who sacrifice quality to get performance may end up getting neither.
+
+Don't confuse your inability with impossibility
+
+Cohesive code changes less frequently and is easier to change when
+such change becomes necessary
+
+SRP: Single Responsibility Principle is really a single reason to change
+principle
+
+SLAP: Single Level of Abstraction Principle
+
+
+Should a function be long or short?
+
+Long functions are hard to test, understand, maintain, debug, change, ....
+We should avoid long functions.
+
+But, short functions are hard to work with. Too many things to be 
+used together. Not minimalistic, may make the life of the user of the
+code really hard.
+
+Neither long nor arbitrarily short
+
+Do not take long functions and chop them up into smaller functions
+
+Think about this from the point of view of two people:
+1. the author of the code
+2. the user of the code
+
+Instead of the size of a function, focus on the number of levels of
+abstraction of a function.
+
+A short function is not about the size (the number of lines of code)
+but about the level of details or abstraction that function focuses on.
+
+If instead of focusing on the size of a function, if we focus on the
+levels of details, the functions we create are often easier for the
+author to maintain and the user to make use of as well.
+
+The code should be composed of instructions at a single level of detail
+
+Compose method pattern
+
+Low coupling: depend on fewer things instead of more things
+Loose coupling: depend on something more stable (like an interface) 
+rather than something less stable (like a class)
+
+We want both loose coupling and low coupling
+
+A good code should read like a story, not like a puzzle
+
+https://twitter.com/venkat_s/status/446187761788153856
+
+public void someMethod(int input) {
+  for(...) {
+    input = ... //bad idea
+  }
+}
+
+In languages like Java, we often make input final to avoid code like this.
+
+Think of language design decisions. Some languages have safe defaults
+
+For example, in Kotlin and Scala the parameters to a function are
+automatically final - immutable.
+
+Don't comment to cover up bad code
+
+If the code is hard to read, refactor it instead of writing comments.
+
+Write comments to tell why the code exists and not what it does
+
+Comment why and not what.
+
+Make the code self-documenting and also rely on tests as a form of
+documentation.
+
+Good tests should serve as executable documentation to clearly express the 
+requirements and expectations. All other benefits follow in significance.
+
+https://twitter.com/venkat_s/status/1608143682061979650
+
+One of the most important lines of code we can write is a blank line
+
+Blank lines separate different parts in the code so the reader get a 
+quick grasp of the structure of the function and its different parts.
+
+When writing unit tests, for example, use a blank line between the
+following parts (AAA):
+Arrange
+Act
+Assert
+
+
