@@ -1,0 +1,42 @@
+Do you think long methods are a good idea? No
+
+Do you see long methods at work? Yes
+
+How long is long?
+
+1000 lines is long? yes
+100? humm
+10? hummmmmm
+
+The long method is not about the size of the method.
+Then how to determine?
+
+A method should focus on a single level of abstraction or  details
+SLAP more than SRP
+
+Think about how we communicate with each other
+
+We start with a high level detail. We don't get into the low level 
+details until we are ready to dive into those details.
+
+We communicate in one level of abstraction between humans.
+
+This helps us to comprehend and deal with complexity
+
+Abstractions help us to cope with complexity
+
+Compose method pattern - a function is composed of 
+instructions at the right level of detail or abstraction
+
+whereas SRP is interesting, I value SLAP more than SRP for this reason
+
+Look at functions from two points of view:
+1. Look at it from the user of abstraction point of view
+2. Look at it from the maintainer point of view
+
+Then address 2 without compromising 1. Do not make it harder for the
+users first, then make it easier for the maintainers.
+
+Chopping functions may not be helpful for the users though it may help
+the maintainers. Strike a balance and focus on SLAP to get that balance.
+
