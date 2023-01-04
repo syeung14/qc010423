@@ -1,0 +1,16 @@
+React functional component
+
+testButtonSendsRequestToServer() {
+  //Arrange
+  jest.mockImplementation(service, 'sendRequest'....);
+  render(<MyComponent />); 
+  const button = screen.getByText(/.../);
+
+  //Act
+  button.fireEvent(click);
+
+  //Assert
+  expect(service.sendRequest.calledWith(...));
+  expect(... more expectations...);
+}
+
