@@ -5,50 +5,50 @@ Twitter: @venkat_s
 http://www.agiledeveloper.com download link
 
 Part 1:  Motivations and reasons to care about code quality
--Why should we care about code quality? (0, 1)
--What makes code quality good?
--the economic impact of quality
--Tony Hoar's quote (2)
--Make code expressive, intent clear (3)
--avoid clever code (4)
- -on ugly code (5)
- -quality vs. performance (6)
--favor high cohesion
- -Single Responsibility Principle (SRP)
- -Single Level of Abstraction Principles (SLAP)
--favor loose and low coupling
--avoid primitive obsession
- -is this code correct? (7)
- -good code vs. poor quality code (8)
--mind the flow, for clarity
--avoid unnecessary mutation 
--do not change parameters
--comment why, not what
- -self-documenting code
- -self-expressive code
- -on poor design (shower)
- -don't comment to cover up bad code
- -do not comment bad code, refactor
--avoid single letter meaningless names
--use single letter only for well accepted cases, like loop index
--do tactical code reviews
--be continuous, not episodic
--treat warnings as errors
- -incrementally improve
--lab
--review and discussions
+✔Why should we care about code quality? (0, 1)
+✔What makes code quality good?
+✔the economic impact of quality
+✔Tony Hoar's quote (2)
+✔Make code expressive, intent clear (3)
+✔avoid clever code (4)
+ ✔on ugly code (5)
+ ✔quality vs. performance (6)
+✔favor high cohesion
+ ✔Single Responsibility Principle (SRP)
+ ✔Single Level of Abstraction Principles (SLAP)
+✔favor loose and low coupling
+✔avoid primitive obsession
+ ✔is this code correct? (7)
+ ✔good code vs. poor quality code (8)
+✔mind the flow, for clarity
+✔avoid unnecessary mutation 
+✔do not change parameters
+✔comment why, not what
+ ✔self-documenting code
+ ✔self-expressive code
+ ✔on poor design (shower)
+ ✔don't comment to cover up bad code
+ ✔do not comment bad code, refactor
+✔avoid single letter meaningless names
+✔use single letter only for well accepted cases, like loop index
+✔do tactical code reviews
+✔be continuous, not episodic
+✔treat warnings as errors
+ ✔incrementally improve
+✔lab
+✔review and discussions
 
 Part 2: Measuring Quality of Code
--long methods
--perils of long methods
--what is a long method?
--are short methods complicated and hard to follow?
--evaluating the size of a method/function
--cyclomatic complexity
- -PMD - Java
- -Plato - JavaScript
- -Radon - Python
--lab
+✔long methods
+✔perils of long methods
+✔what is a long method?
+✔are short methods complicated and hard to follow?
+✔evaluating the size of a method/function
+✔cyclomatic complexity
+ ✔PMD - Java
+ ✔Plato - JavaScript
+ ✔Radon - Python
+✔lab
 -review and discussions
 
 Part 3: Quality of Object-Oriented Code
