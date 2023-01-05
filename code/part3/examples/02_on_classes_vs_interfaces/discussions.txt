@@ -1,0 +1,37 @@
+Prefer, where it makes sense, interfaces over abstract base classes (ABC)
+
+Interfaces cannot have non-final or mutable fields
+Interfaces do not carry state compared to ABC
+
+Interfaces are thus more stable compared to ABC and are void of implementations
+compared to ABC
+
+From the inheritance and extensibility point of view, interfaces shine better
+than ABC
+
+We can't inherit from multiple ABC but we can inherit from multiple interfaces
+fairly safely
+
+From the specification point of view, use interfaces for specifying common
+behaviors that can be refined by subclasses.
+
+From common state point of view use ABC - this is the only time when 
+ABC makes more sense than an interface. We really want to derive off a
+common implementation.
+
+Please do not follow the following dogmatically or arbitrarily:
+Depend on an interface instead of on a concrete class
+
+In general, depending on a class is tight coupling. Depending on an interface
+is loose coupling.
+
+Depend on an interface over a class - however, we need to see clear benefit
+to do so. Otherwise, we end up creating interfaces unnecessarily, increasing
+unnecessarily complexity.
+
+Ask why every single time.
+
+
+
+
+
