@@ -1,0 +1,2 @@
+In this lab we will identify the code smells in the given code. Please jot down things you observe.
+Run the test to make sure all tests pass. Then address the smells you identified and verify the tests still pass.
