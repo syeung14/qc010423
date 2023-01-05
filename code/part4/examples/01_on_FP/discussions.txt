@@ -1,0 +1,163 @@
+On FP
+
+Are we using functional style like lambdas, streams, etc.
+
+yes, bit of both, ...
+
+Do you find that programmers at times write unmaintainable or hard to 
+understand/maintain code with functional style?
+
+Have you seen something like this?
+
+people....
+  .map(x -> ...)
+  .filter(k -> ...)
+  .reduce((a, b) -> ...)
+
+Please don't use single letter meaningless names for lambda parameters.
+
+These are practices promoted by poor examples we are exposed to from
+books, presentations, colleagues, etc.
+
+We can and should do better.
+
+Please use names that represent an abstraction and details of the object
+or variable from the domain.
+
+
+.filter(person -> person...)
+.map(store -> store...)
+.reduce(initialValue, (totalSalary, salary) -> ...)
+
+Would you name your kid "p"
+Hope not. Then do not name your variables p, x, k, z, etc.
+
+Give the name that conveys the intent, the purpose, and reflects on the
+abstraction from the domain point of view.
+
+What about types?
+
+Instead of writing the following:
+
+people.stream()
+  .map((Person p) -> p.getName())
+  .map((String s) -> s.toUpperCase())
+
+A lot of moise, the type did not help us to know the domain specific
+name for this variable. Instead write
+
+people.stream()
+  .map((Person person) -> person.getName())
+  .map((String name) -> name.toUpperCase())
+
+But, still noisy and we can go further:
+
+
+people.stream()
+  .map(person -> person.getName())
+  .map(name -> name.toUpperCase())
+
+Less noisy, the name carries the domain meaning, the type is obvious for
+those quite familiar with the code and the domain.
+
+(String l)
+vs.
+(licensePlateNumber -> )
+
+Use method references where possible:
+
+people.stream()
+  .map(person -> person.getName())
+  .map(name -> name.toUpperCase())
+
+or
+
+people.stream()
+  .map(Person::getName)
+  .map(String::toUpperCase)
+
+Less noisy, easy to read, quick to grasp, no need to parse through the 
+lambda expression with our human eyes.
+
+Have you seen code like the following:
+
+people.stream().filter(person -> person.getAge() > 17).map(person -> person.getName()).map(name -> name.toUpperCase()).collect(toList());
+
+The only time we should write code like the above is when we want to tell
+everyone of our colleagues that we really hate them.
+
+The above code has no empathy, it has very high cogtive load.
+
+Please align dots vertically.
+
+
+people.stream()
+  .filter(person -> person.getAge() > 17)
+  .map(person -> person.getName())
+  .map(name -> name.toUpperCase())
+  .collect(toList());
+
+Then, we can improve further:
+
+people.stream()
+  .filter(person -> person.getAge() > 17)
+  .map(Person::getName)
+  .map(String::toUpperCase)
+  .collect(toList());
+
+It is easier now to see the forest from the trees.
+
+We can quickly glance at the code and grasp the overall steps
+before looking into the individual steps.
+
+Most IDEs have setting in them to turn on this formatting.
+So, we don't have to do this manually. Simple write the code
+and let the IDE format as we desires. Or use shortcut keys
+to invoke the formatting the IDEs.
+
+Avoid multi-line lambda expressions:
+
+
+.map(car -> {
+...
+...
+...
+...
+...
+}).map(seat -> {
+...
+...
+...
+})
+
+Please avoid using -> {...}
+
+Code like the above are terrible for many reasons:
+-hard to read
+-we lost the readability benefit of FP
+-hard to understand
+-hard to test
+-will have poor code coverage
+-leads to duplication of code
+
+Lambdas are glue code, two lines may be too many
+https://twitter.com/venkat_s/status/611119147586600960
+
+.map(car -> processAndFetchSeat(car))
+.map(seat -> processSeat(seat))
+
+
+Keep lambdas as pure functions, avoid mutating from within lambda expressions
+
+FP relies on lazy evaluation for efficiency
+Lazy evaluation relies on no side-effect for correctness.
+Parallel execution also relies on immutability for correctness.
+
+FP emphasizes immutability not because it is fashionable, but
+because it relies on it for efficiency and correctness.
+
+FP relies on lazy evaluation for efficiency
+Lazy evaluation relies on no side-effect for correctness.
+Parallel execution also relies on immutability for correctness.
+
+
