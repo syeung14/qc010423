@@ -1,0 +1,30 @@
+OOP was introduced by Dahl and Nygaard in 1967
+
+Alan Kay coined the term OOP
+
+Alan Kay: "When I defined the term Object-Oriented I did not have C++ in mind."
+
+OOP is really powerful when we focus on behavior rather than state.
+
+Sadly though, over the years, largely due to influence of languages like C++,
+Java, C#, etc. we ended up creating a lot more state than we should.
+
+** Reduce state as much as possible.
+
+Do not introduce a field in a class unless the code will not work without it.
+
+State should not be self-serving. Bring in state minimally only when we can't
+implement the solution without it.
+
+I often write fields only when a method really demands it and not anytime before
+that.
+
+If we have fewer fields, then
+-it is easier to reason the code
+-we minimize shared mutability in code
+-it is easier to test the code as we need fewer setup
+-it is easier to parallelize the code when necessary
+
+As much as possible, avoid writing fields; minimize state where you are able to.
+
+
