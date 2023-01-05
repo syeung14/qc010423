@@ -1,0 +1,27 @@
+
+
+target word --->
+                   function  ---> Matches
+guess word  --->
+
+for each letter get the match
+
+for one letter?
+    position match - exact
+    non position without exact position - exists
+    no match - nope
+
+
+Do not confuse familiar with simple and unfamiliar with complex
+
+Something that is familiar may be simple or complex
+Something that is unfamiliar may be simple or complex
+
+Both imperative style and functional style code may be simple or complex
+
+However, in general terms, imperative style has more accidental complexity
+compared to well written functional style code
+
+
+
+
