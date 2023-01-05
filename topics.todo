@@ -49,28 +49,28 @@ Part 2: Measuring Quality of Code
  ✔Plato - JavaScript
  ✔Radon - Python
 ✔lab
--review and discussions
+✔review and discussions
 
 Part 3: Quality of Object-Oriented Code
--classes
--choosing between interfaces and abstract base classes
--when to use an interface
--when to use an abstract base class
--avoid tight coupling (where necessary)
--remove coupling where possible
--choose delegation over inheritance for reuse
--minimize state, avoid where possible
--lab
--review and discussions
+✔classes
+✔choosing between interfaces and abstract base classes
+✔when to use an interface
+✔when to use an abstract base class
+✔avoid tight coupling (where necessary)
+✔remove coupling where possible
+✔choose delegation over inheritance for reuse
+✔minimize state, avoid where possible
+✔lab
+✔review and discussions
 
 Part 4: Quality of Functional Style Code
--Avoid single letter parameter names
--choose good names with type inference
--vertically align dots
--Avoid multiline lambda expressions
- -treat lambdas as glue code
--use method references where possible
--Keep lambdas pure
--lab
--review and discussions
+✔Avoid single letter parameter names
+✔choose good names with type inference
+✔vertically align dots
+✔Avoid multiline lambda expressions
+ ✔treat lambdas as glue code
+✔use method references where possible
+✔Keep lambdas pure
+✔lab
+✔review and discussions
 
